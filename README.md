@@ -1,8 +1,8 @@
-# React Wordle
+# Hidden Wordle
 
-This is a clone project of the popular word guessing game we all know and love. Made using React, Typescript, and Tailwind.
+This is a fork project of a popular react wordle clone that also delivers a daily quote from the Hidden Words of Baha'u'llah
 
-[**Try out the demo!**](https://reactle.vercel.app/)
+[**Check out the parent!**](https://github.com/cwackerfuss/react-wordle)
 
 ## Build and run
 
