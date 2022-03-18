@@ -1,4 +1,6 @@
 import { WORDS } from '../constants/wordlist'
+import { QUOTES } from '../constants/quotes'
+import { QUOTE_MAP } from '../constants/quoteMap'
 import { VALID_GUESSES } from '../constants/validGuesses'
 import { WRONG_SPOT_MESSAGE, NOT_CONTAINED_MESSAGE } from '../constants/strings'
 import { getGuessStatuses } from './statuses'
@@ -79,14 +81,19 @@ export const getWordOfDay = () => {
   const epochMs = new Date(2022, 0).valueOf()
   const now = Date.now()
   const msInDay = 86400000
-  const index = Math.floor((now - epochMs) / msInDay)
+  const index = Math.floor((now - epochMs) / msInDay) - 2
   const nextday = (index + 1) * msInDay + epochMs
 
+  const solution = localeAwareUpperCase(WORDS[index % WORDS.length])
+  const mapping = QUOTE_MAP[localeAwareLowerCase(solution)]
+  const solutionIndex = mapping.quoteDetail
+  const quote = QUOTES[mapping.quoteIndex]
   return {
-    solution: localeAwareUpperCase(WORDS[index % WORDS.length]),
-    solutionIndex: index,
+    solution,
+    solutionIndex,
+    quote,
     tomorrow: nextday,
   }
 }
 
-export const { solution, solutionIndex, tomorrow } = getWordOfDay()
+export const { solution, solutionIndex, quote, tomorrow } = getWordOfDay()

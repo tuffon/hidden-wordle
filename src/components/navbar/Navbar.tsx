@@ -23,7 +23,7 @@ export const Navbar = ({
           className="h-6 w-6 mr-2 cursor-pointer dark:stroke-white"
           onClick={() => setIsInfoModalOpen(true)}
         />
-        <p className="text-xl ml-2.5 font-bold dark:text-white"><img alt="logo" src={logo} width="220" /></p>
+        <p className="text-xl ml-2.5 font-bold dark:text-white"><img alt="logo" src={logo} width="300" /></p>
         <div className="right-icons">
           <ChartBarIcon
             className="h-6 w-6 mr-3 cursor-pointer dark:stroke-white"

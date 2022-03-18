@@ -3,6 +3,7 @@ import { Grid } from './components/grid/Grid'
 import { Keyboard } from './components/keyboard/Keyboard'
 import { InfoModal } from './components/modals/InfoModal'
 import { StatsModal } from './components/modals/StatsModal'
+import { QuoteModal } from './components/modals/QuoteModal'
 import { SettingsModal } from './components/modals/SettingsModal'
 import {
   WIN_MESSAGES,
@@ -23,6 +24,7 @@ import {
   isWordInWordList,
   isWinningWord,
   solution,
+  quote,
   findFirstUnusedReveal,
   unicodeLength,
 } from './lib/words'
@@ -52,6 +54,7 @@ function App() {
   const [isInfoModalOpen, setIsInfoModalOpen] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
   const [isSettingsModalOpen, setIsSettingsModalOpen] = useState(false)
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
   const [currentRowClass, setCurrentRowClass] = useState('')
   const [isGameLost, setIsGameLost] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(
@@ -150,13 +153,13 @@ function App() {
 
       showSuccessAlert(winMessage, {
         delayMs,
-        onClose: () => setIsStatsModalOpen(true),
+        onClose: () => setIsQuoteModalOpen(true),
       })
     }
 
     if (isGameLost) {
       setTimeout(() => {
-        setIsStatsModalOpen(true)
+        setIsQuoteModalOpen(true)
       }, GAME_LOST_INFO_DELAY)
     }
   }, [isGameWon, isGameLost, showSuccessAlert])
@@ -266,6 +269,11 @@ function App() {
         <InfoModal
           isOpen={isInfoModalOpen}
           handleClose={() => setIsInfoModalOpen(false)}
+        />
+        <QuoteModal
+          isOpen={isQuoteModalOpen}
+          quote={quote}
+          handleClose={() => setIsQuoteModalOpen(false)}
         />
         <StatsModal
           isOpen={isStatsModalOpen}
