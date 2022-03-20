@@ -77,8 +77,6 @@ export const WORDS = [
   'space',
   'while',
   'blood',
-  'there',
-  'thing',
   'risen',
   'shone',
   'mount',

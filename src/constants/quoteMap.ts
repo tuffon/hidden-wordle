@@ -316,14 +316,6 @@ export const QUOTE_MAP: { [key:string]: QuoteMap } = {
     quoteIndex: 39,
     quoteDetail: "Arabic 47"
   },
-  'there': {
-    quoteIndex: 41,
-    quoteDetail: "Arabic 48"
-  },
-  'thing': {
-    quoteIndex: 49,
-    quoteDetail: "Arabic 57"
-  },
   'risen': {
     quoteIndex: 54,
     quoteDetail: "Arabic 62"
